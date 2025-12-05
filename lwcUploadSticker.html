@@ -1,45 +1,62 @@
 <template>
+
+    <!-- Show loader until labels are loaded -->
+    <template if:false={labelsLoaded}>
+        <div class="loading-box">
+            <lightning-spinner size="small"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Render UI only after labels arrive -->
+    <template if:true={labelsLoaded}>
+
         <lightning-card class="toast-parent">
             <div class="custom-card-title">
                 <div class="main-heading">{lblUploadSticker}</div>
             </div>
+
             <div class="slds-p-around_medium">
 
-                <div class="parent ">
-                    <div class="stickerName" title={lblEnterName}>
+                <div class="parent">
+
+                    <!-- Sticker Name + Global Toggle -->
+                    <div class="stickerName">
+
                         <lightning-input 
                             class="nameInput"
                             label={lblStickerName}
                             value={stickerName}
                             onchange={handleNameChange}
-                            placeholder={lblEnterName}
-                            >
+                            placeholder={lblEnterName}>
                         </lightning-input>
 
                         <div class={globalToggleClass} title={lblGlobal} onclick={toggleGlobalSticker}>
                             <span>{lblGlobal}</span>
                             <lightning-icon icon-name="utility:check" size="x-small" class="check-icon"></lightning-icon>
                         </div>
+
                     </div>
 
+                    <!-- File Upload -->
                     <div class="uploadFile">
-                        <div class="upload-box" title={lblBrowseFile} onclick={triggerFileDialog} >
+                        <div class="upload-box" title={lblBrowseFile} onclick={triggerFileDialog}>
                             <span>{displayedFileName}</span>
-                            <button type="button" class="browse-btn">
-                                {lblBrowseFile}
-                            </button>
+                            <button type="button" class="browse-btn">{lblBrowseFile}</button>
                             <input type="file" accept="image/*" class="hidden-input" onchange={handleFileChange} />
                         </div>
                     </div>
+
+                    <!-- Buttons -->
                     <div class="uploadBtn">
                         <div class="button-row">
-                            <button class="cancel-btn" title ={lblCancel} onclick={resetForm}>{lblCancel}</button>
-                            <button class="upload-btn" title={lblUpload} onclick={handleSave} >{lblUpload}</button>
+                            <button class="cancel-btn" onclick={resetForm}>{lblCancel}</button>
+                            <button class="upload-btn" onclick={handleSave}>{lblUpload}</button>
                         </div>
                     </div>
+
                 </div>
 
-                <!-- File info -->
+                <!-- File Info -->
                 <template if:true={fileData}>
                     <div class="compression-wrapper">
                         <div class="compression-box-custom">
@@ -49,32 +66,29 @@
                     </div>
                 </template>
 
-                <!-- Image preview -->
+                <!-- Preview -->
                 <template if:true={fileData}>
                     <div class="preview-container slds-align_absolute-center slds-m-vertical_small">
-                        <img src={fileData.previewUrl} alt="Sticker Preview" class="preview-image" />
+                        <img src={fileData.previewUrl} class="preview-image" />
                     </div>
                 </template>
-    
+
             </div>
+
         </lightning-card>
-        <!-- Custom Toast Container -->
-    <template if:true={showCustomToastBox}>
-        <div class={toastClass}>
 
-            <lightning-icon icon-name={toastIcon}
-                            size="small"
-                            class="toast-icon">
-            </lightning-icon>
-
-            <div class="toast-text">
-                <strong>{toastTitle}</strong><br/>
-                <span>{toastMessage}</span>
+        <!-- Toast -->
+        <template if:true={showCustomToastBox}>
+            <div class={toastClass}>
+                <lightning-icon icon-name={toastIcon} size="small" class="toast-icon"></lightning-icon>
+                <div class="toast-text">
+                    <strong>{toastTitle}</strong><br/>
+                    <span>{toastMessage}</span>
+                </div>
+                <button class="toast-close" onclick={closeToast}>×</button>
             </div>
-
-            <button class="toast-close" onclick={closeToast}>×</button>
-
-        </div>
-    </template>
+        </template>
 
     </template>
+
+</template>

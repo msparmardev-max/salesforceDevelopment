@@ -25,6 +25,7 @@ export default class lwcUploadSticker extends LightningElement {
     @track labels = {};
     @track labelsLoaded = false;
 
+
     connectedCallback() {
         this.valueStreamOptions = [{ label: '-- None (Global Sticker) --', value: '' }];
         if (this.recordId) {

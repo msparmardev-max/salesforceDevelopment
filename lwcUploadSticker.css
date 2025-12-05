@@ -342,3 +342,9 @@
     width: 25.625rem;
     margin: 0 auto;
 }
+
+.loading-box {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
