@@ -1,0 +1,80 @@
+<template>
+        <lightning-card class="toast-parent">
+            <div class="custom-card-title">
+                <div class="main-heading">{lblUploadSticker}</div>
+            </div>
+            <div class="slds-p-around_medium">
+
+                <div class="parent ">
+                    <div class="stickerName" title={lblEnterName}>
+                        <lightning-input 
+                            class="nameInput"
+                            label={lblStickerName}
+                            value={stickerName}
+                            onchange={handleNameChange}
+                            placeholder={lblEnterName}
+                            >
+                        </lightning-input>
+
+                        <div class={globalToggleClass} title={lblGlobal} onclick={toggleGlobalSticker}>
+                            <span>{lblGlobal}</span>
+                            <lightning-icon icon-name="utility:check" size="x-small" class="check-icon"></lightning-icon>
+                        </div>
+                    </div>
+
+                    <div class="uploadFile">
+                        <div class="upload-box" title={lblBrowseFile} onclick={triggerFileDialog} >
+                            <span>{displayedFileName}</span>
+                            <button type="button" class="browse-btn">
+                                {lblBrowseFile}
+                            </button>
+                            <input type="file" accept="image/*" class="hidden-input" onchange={handleFileChange} />
+                        </div>
+                    </div>
+                    <div class="uploadBtn">
+                        <div class="button-row">
+                            <button class="cancel-btn" title ={lblCancel} onclick={resetForm}>{lblCancel}</button>
+                            <button class="upload-btn" title={lblUpload} onclick={handleSave} >{lblUpload}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File info -->
+                <template if:true={fileData}>
+                    <div class="compression-wrapper">
+                        <div class="compression-box-custom">
+                            <lightning-icon icon-name="utility:info" size="x-small" class="info-icon"></lightning-icon>
+                            <span class="info-text">{compressionRatio}</span>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Image preview -->
+                <template if:true={fileData}>
+                    <div class="preview-container slds-align_absolute-center slds-m-vertical_small">
+                        <img src={fileData.previewUrl} alt="Sticker Preview" class="preview-image" />
+                    </div>
+                </template>
+    
+            </div>
+        </lightning-card>
+        <!-- Custom Toast Container -->
+    <template if:true={showCustomToastBox}>
+        <div class={toastClass}>
+
+            <lightning-icon icon-name={toastIcon}
+                            size="small"
+                            class="toast-icon">
+            </lightning-icon>
+
+            <div class="toast-text">
+                <strong>{toastTitle}</strong><br/>
+                <span>{toastMessage}</span>
+            </div>
+
+            <button class="toast-close" onclick={closeToast}>×</button>
+
+        </div>
+    </template>
+
+    </template>

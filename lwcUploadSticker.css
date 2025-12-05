@@ -1,0 +1,344 @@
+/* Overall card styling — compact, centered, white box */
+.slds-card__body {
+    display: flex;
+    justify-content: center;
+}
+.slds-p-around_medium {
+    max-width: 25.625rem;  /* 410px */
+    margin: 0 auto;
+    background: #fff;
+    border: 0.0625rem solid #d8dde6;  /* 1px */
+    border-radius: 0.1875rem;  /* 3px */
+    box-shadow: none;
+}
+
+/* Global toggle — only checkbox turns green */
+.global-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff; 
+    border: 0.0625rem solid #d8dde6;  /* 1px */
+    border-radius: 0.125rem;  /* 2px */
+    width: 4.6rem;  /* 75px */
+    height: 2rem;  /* 32px */
+    cursor: pointer;
+    padding: 0 0.375rem;  /* 6px */
+    transition: all 0.3s ease;
+}
+
+/* Always keep text same color */
+.global-toggle span {
+    
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/*  Default (unchecked) checkbox */
+.check-icon {
+    background: #e6e6e6; /* light gray box */
+    border-radius: 0.125rem;  /* 2px */
+    padding: 0.125rem;  /* 2px */
+    --slds-c-icon-color-foreground-default: white;
+    transition: background 0.3s ease;
+}
+
+/* When active — only checkbox changes color */
+.global-toggle.active .check-icon {
+    background: #41833a; /* green only on tick area */
+    --slds-c-icon-color-foreground-default: #194214 !important; /* dark green tick */
+}
+
+/* Ensure border never changes */
+.global-toggle.active {
+    border: 0.0625rem solid #d8dde6 !important;  /* 1px */
+    background: #ffffff;
+}
+
+/*  Upload box — perfectly flush right edge */
+.upload-box {
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #d8dde6;  /* 1px */
+    border-radius: 0.125rem;  /* 2px */
+    background: #fff;
+    padding: 0.1875rem 0 0.1875rem 0.5rem;  /* 3px 0 3px 8px */
+    margin-top: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    height: 1.875rem;  /* 30px */
+}
+
+/* filename text inside box */
+.upload-box span {
+    font-size: 0.75rem;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
+    line-height: 1.875rem;  /* 24px */
+}
+
+.hidden-input {
+    display: none;
+}
+
+/*  Browse button — now flush with right border */
+.browse-btn {
+    background: #646f76;
+    color: white;
+    border: none;
+    border-top-right-radius: 0.125rem;  /* 2px */
+    border-bottom-right-radius: 0.125rem;  /* 2px */
+    height: 1.875rem;  /* 30px */
+    padding: 0 0.573rem;  /* 8px */
+    
+    font-size: 0.75rem;  
+    letter-spacing: -0.01875rem;  /* -0.3px */
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.browse-btn:hover {
+    background: #666;
+}
+
+/* Button row – width matches upload box */
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.625rem;  /* 10px */
+    margin-top: 0.5rem;
+    width: 100%;
+    max-width: 22.5rem;  /* 360px */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cancel button */
+.cancel-btn {
+    background: #646f76;
+    color: white;
+    border: none;
+    border-radius: 0.125rem;  /* 2px */
+    padding: 0.375rem 1rem;  /* 6px 16px */
+    
+}
+
+.cancel-btn:hover {
+    background: #666;
+}
+
+/* Upload button */
+.upload-btn {
+    background: #41833a;
+    color: white;
+    border: none;
+    border-radius: 0.125rem;  /* 2px */
+    padding: 0.375rem 0.98rem;  /* 6px 16px */
+    
+}
+
+.upload-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Preview section */
+.preview-container {
+    border: 0.0625rem dashed #d8dde6;  /* 1px */
+    border-radius: 0.1875rem;  /* 3px */
+    padding: 0.5rem;
+    background: #fafafa;
+    margin-top: 0.75rem;
+}
+
+.preview-image {
+    display: block;
+    max-width: 6.25rem;  /* 100px */
+    max-height: 6.25rem;  /* 100px */
+    border-radius: 0.25rem;  /* 4px */
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.15);  /* 0 1px 3px */
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Keep width aligned with Upload box */
+.compression-wrapper {
+    width: 100%;
+    max-width: 22.5rem;  /* 360px */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;  /* 8px */
+}
+
+/* Exact Salesforce info message style */
+.compression-box-custom {
+    background: #e3f3ff;
+    border: 0.0625rem solid #b5d9ff;  /* 1px */
+    padding: 0.375rem 0.75rem;  /* 6px 12px */
+    border-radius: 1.25rem;  /* 20px */
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;  /* 10px */
+}
+
+/* Icon styling to match Salesforce's */
+.info-icon {
+    --slds-c-icon-color-foreground-default: #0176d3;
+}
+
+/* Text styling same as SFDC info text */
+.info-text {
+    font-size: 0.75rem;
+    color: #0176d3;
+    
+}
+
+/* Parent container */
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.uploadFile{
+    width: 100%;
+}
+
+/* Sticker Name + Global Toggle Row */
+.stickerName {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.625rem;  /* 10px */
+}
+
+/* Make input full width */
+.nameInput {
+    flex: 1;
+    --slds-c-input-radius-border: 0.125rem;  /* 2px to match other boxes */
+    --slds-c-input-radius-border-focus: 0.125rem;  /* Keep rectangular on focus too */
+    --slds-c-input-color-border: #d8dde6;  /* 1px gray border to match other boxes */
+}
+
+/* Force rectangular corners and specific height for alignment */
+.nameInput .slds-input,
+.nameInput input {
+    border-radius: 0.125rem !important;
+    border: 0.0625rem solid #d8dde6 !important;
+    border-color: #d8dde6 !important;
+    height: 2rem !important;  /* 32px - same as global toggle */
+    box-sizing: border-box !important;
+    padding: 0 0.75rem !important;
+}
+
+/* Remove extra margins from form element wrapper */
+.nameInput .slds-form-element {
+    margin-bottom: 0 !important;
+}
+
+/* Specific fix for VF page label spacing */
+.nameInput .slds-form-element__label {
+    margin-bottom: 0.125rem !important;
+    height: 1.25rem !important;
+    line-height: 1.25rem !important;
+}
+
+/* Align Global toggle with input textbox - VF page compatible */
+.stickerName > div:last-child {
+    margin-top: 1.5rem !important;  /* Adjusted for VF page rendering */
+}
+
+.uploadBtn{
+    align-self: flex-end;
+}
+.custom-toast {
+    position: absolute;
+    top: 0;          /* TOP of iframe like Salesforce */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 410px;
+
+
+    padding: 12px 18px;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    font-family: "Salesforce Sans", Arial, sans-serif;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 9999999;
+
+    animation: slideDown 200ms ease-out;
+}
+
+/* SUCCESS */
+.custom-toast.success {
+    background: #D5F5EA;
+    border-left: 6px solid #067C55;
+    color: #034432;
+}
+
+/* ERROR */
+.custom-toast.error {
+    background: #FDE7E9;
+    border-left: 6px solid #C23934;
+    color: #8E0303;
+}
+
+.toast-icon {
+    --slds-c-icon-color-foreground-default: currentColor;
+}
+
+.toast-text {
+    flex: 1;
+    font-size: 0.85rem;
+    line-height: 1.1rem;
+}
+
+/* Close X */
+.toast-close {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translate(-50%, -8px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.toast-parent {
+    position: relative;   /* To position toast above card */
+}
+.custom-card-title{
+    /* margin-left: 157px;
+    margin-bottom: 8px;
+    font-size: 17px;
+    display: block; */
+    margin-bottom: 8px;
+    font-size: 17px;
+    display: flex;
+}
+
+.main-heading {
+    width: 25.625rem;
+    margin: 0 auto;
+}

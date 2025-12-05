@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>lwcUploadSticker</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <!-- Allow component to be used as a screen Quick Action -->
+        <target>lightning__RecordAction</target>
+    
+    </targets>
+    <targetConfigs>
+        <!-- Configure it as a Screen Action -->
+        <targetConfig targets="lightning__RecordAction">
+            <actionType>ScreenAction</actionType>
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
